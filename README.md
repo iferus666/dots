@@ -1,9 +1,9 @@
 # Hi! It's my lightweight bspwm dots (:
-## DEPENDENS: 
+## Dependencies: 
 `yay -S bspwm sxhkd rofi dunst polybar neofetch kitty picom-pijulius-git xorg-xsetroot`
 
 
-## THEME:
+## Theme:
 I'm using [Cattpucin](https://github.com/catppuccin/catppuccin) for all programs. Based on my color preference, I chose the Mocha palette.
 
 **GTK THEME:**
