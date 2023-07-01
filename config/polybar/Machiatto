@@ -1,0 +1,236 @@
+
+[color]
+background = #181926
+foreground = #c6d0f5
+occupied = #c6d0f5
+empty = #737994
+separator = #24273a
+focused = #7287fd
+underline = #df8e1d
+urgent = #04a5e5
+active = #1e66f5
+connected = #40a02b
+battery-full = #40a02b
+battery-low = #d20f39
+battery-normal = #40a02b
+battery-charging = #e64553
+battery-discharging = #df8e1d
+ram = #179299
+cpu = #1e66f5
+layout = #04a5e5
+volume = #ea76cb
+volume-off = #d20f39
+filesystem = #fe640b
+date = #df8e1d
+wifi-disconnect = #d20f39
+tray = #414559
+
+[bar/bar1]
+width = 2160
+height = 22pt
+radius = 0
+
+ dpi = 110
+
+monitor = eDP
+background = ${color.background}
+foreground = ${color.foreground2}
+
+line-size = 1 pt
+
+enable-ipc = true
+
+;border-size =      ; Рамка полибара 
+; border-color =    ; Цвет рамки(если хотите невидимую то оставляйте пустым)
+border-top-size = 2
+
+offset-x = 0
+offset-y = 0
+
+padding-left = 1
+padding-right = 1
+
+module-margin = 1
+
+
+bottom = true
+
+separator = |
+separator-foreground = ${color.separator}
+
+font-0 = Iosevka:size=11:weight=bold;4
+font-1 = Symbols Nerd Font Mono:size=15;4
+
+modules-left = filesystem battery cpu memory
+modules-center = xworkspaces
+modules-right = pulseaudio xkeyboard wireless-network eth date
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+tray-detached = false
+tray-maxsize = 24
+tray-scale = 1
+tray-position = center
+#tray-background = ${color.background}
+tray-offset-x = 300pt
+tray-padding = 5
+
+; wm-restack = generic
+ wm-restack = bspwm
+
+; override-redirect = true
+
+[module/xworkspaces]
+type = internal/xworkspaces
+
+enable-click = true
+enable-scroll = true
+label-occupied-foreground = ${color.occupied}
+
+label-focused-foreground = ${color.focused}
+
+label-urgent-foreground = ${color.urgent}
+
+label-empty-foreground = ${color.empty}
+
+label-active-foreground = ${color.active}
+
+[module/xwindow]
+type = internal/xwindow
+format = <label>
+format-prefix = 
+format-foreground = ${color.foreground}
+label = " %title%"
+label-maxlen = 15
+
+label-empty = " Desktop"
+
+[module/filesystem]
+type = internal/fs
+interval = 30
+
+mount-0 = "/"
+fixed-values = true
+spacing = 2
+format-mounted = <label-mounted>
+format-mounted-prefix = 󱇫
+format-mounted-prefix-foreground = ${color.filesystem}
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = 
+format-unmounted-prefix-foreground = ${color.urgent}
+label-mounted = " %free%"
+label-unmounted = " %mountpoint%: not mounted"
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+fixed-values = false
+format-volume = <ramp-volume> <label-volume>
+ramp-volume-foreground = ${color.volume}
+label-volume = %percentage%%
+ramp-volume-0 = 󰕿
+ramp-volume-1 = 󰖀
+ramp-volume-2 = 󰕾
+format-muted = <label-muted>
+format-muted-prefix = 󰸈
+format-muted-prefix-foreground = ${color.volume-off}
+label-muted = " Muted"
+label-muted-foreground = ${color.foreground}
+click-right = pavucontrol
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+low-at = 10
+battery = BAT0
+adapter = ACAD
+poll-interval = 2
+
+time-format = %H:%M
+
+format-charging = <label-charging>
+format-charging-prefix = "󱚣 "
+format-charging-prefix-foreground = ${color.battery-charging}
+
+format-discharging = <label-discharging>
+format-discharging-prefix = "󱚟 "
+format-discharging-prefix-foreground = ${color.battery-discharging}
+
+format-full = <label-full>
+format-full-prefix = "󱚥 "
+format-full-prefix-foreground = ${color.battery-full}
+
+format-low = <label-low>
+format-low-prefix = "󱚡 "
+format-low-prefix-foreground = ${color.battery-low}
+
+label-charging = %percentage%%
+
+label-discharging = %percentage%%
+
+label-full = Full
+label-low = Low
+
+[module/xkeyboard]
+type = internal/xkeyboard
+
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+format = <label-layout> <label-indicator>
+format-prefix = " "
+
+label-layout = %layout%
+format-prefix-foreground = ${color.layout}
+label-indicator = %name%
+
+label-indicator-padding = 0
+label-indicator-margin = 0
+label-indicator-on-capslock = ﳑ
+label-indicator-off-capslock = 
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "󰍛 "
+format-prefix-foreground = ${color.ram}
+label = %percentage_used:2%%
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "󰻠 " 
+format-prefix-foreground = ${color.cpu}
+label = %percentage:2%%
+
+[module/wireless-network]
+type = internal/network
+interval = 3
+interface = wlan0
+interface-type = wireless
+speed-unit = ''
+unknown-as-up = true
+format-connected = <label-connected>
+format-connected-prefix= "󱚽 "
+format-connected-prefix-foreground = ${color.connected}
+format-disconnected = <label-disconnected>
+label-connected = %essid% 
+label-disconnected = 󰖪
+label-disconnected-foreground = ${color.wifi-disconnect}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %H:%M
+date-alt = %Y-%m-%d %H:%M:%S
+
+label = %date%
+format-prefix= "󰃰 " 
+format-prefix-foreground = ${color.date}
+
+
+
+
+; vim:ft=dosini
