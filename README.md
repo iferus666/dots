@@ -17,6 +17,8 @@ I'm using [Cattpucin](https://github.com/catppuccin/catppuccin) for all programs
 
 [Nerd Symbols Font](https://www.nerdfonts.com/)
 
+[Ubuntu Nerd Font](https://www.nerdfonts.com/) for kitty
 ## Screenshots: 
 
 ![Preview](img/preview.png)
+
