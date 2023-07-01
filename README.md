@@ -10,7 +10,9 @@ I'm using [Cattpucin](https://github.com/catppuccin/catppuccin) for all programs
 
 [Cattpuccin-mocha](https://www.pling.com/p/1996672)
 
-**Icons** : I'm use [Newaita Reborn Dark Fedora](https://github.com/cbrnix/Newaita-reborn) icons and for rofi I use [Colloid-Dark](https://github.com/vinceliuice/Colloid-icon-theme)
+**Icons** :
+
+ I'm use [Newaita Reborn Dark Fedora](https://github.com/cbrnix/Newaita-reborn) icons and for rofi I use [Colloid-Dark](https://github.com/vinceliuice/Colloid-icon-theme)
 
 ## Fonts:
 [Iosevka](https://typeof.net/Iosevka/)
